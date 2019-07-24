@@ -163,11 +163,6 @@ namespace ImageProcessor.Web.HttpModules
         {
             HttpResponse response = context.Response;
 
-            if (response.Headers["ImageProcessedBy"] == null)
-            {
-                response.AddHeader("ImageProcessedBy", $"ImageProcessor/{AssemblyVersion} - ImageProcessor.Web/{WebAssemblyVersion}");
-            }
-
             HttpCachePolicy cache = response.Cache;
             cache.SetCacheability(HttpCacheability.Public);
             cache.VaryByHeaders["Accept-Encoding"] = true;
